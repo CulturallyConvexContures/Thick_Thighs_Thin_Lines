@@ -1,24 +1,154 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>StarSeed Dice Roller</title>
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Dice of Destiny – Loot Drop</title>
+<link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="overlay">
-    <h1>🎲 Roll a StarSeed Die</h1>
-    <button onclick="rollDice()">✨ Roll ✨</button>
-    <p id="result">You rolled: ?</p>
-  </div>
+<div class="wrap">
+  <div class="card">
+    <h1>🎲 Roll the Dice of Destiny</h1>
+    <p class="lead">After each session, roll for loot. Rarity → perks. Optional prefix/suffix for extra spice.</p>
 
-  <script>
-    const words = ["Whisper", "Glimmer", "Echo", "Drift", "Pulse", "Seed"];
-    function rollDice() {
-      const roll = words[Math.floor(Math.random() * words.length)];
-      document.getElementById("result").innerText = "You rolled: " + roll;
-    }
-  </script>
+    <div class="controls">
+      <label><input type="checkbox" id="withFlavor" checked> Prefix + suffix</label>
+      <label><input type="checkbox" id="autoEffects" checked> Show effect text</label>
+      <button class="primary" id="rollBtn">✨ Roll for Loot</button>
+      <button id="clearHistory">Clear History</button>
+    </div>
+
+    <div id="result" class="result">No roll yet. Click <b>Roll for Loot</b> to begin.</div>
+
+    <div class="history" id="history"></div>
+    <p class="small">Rarity: 1–60 none, 61–85 common, 86–95 rare, 96–99 epic, 100 legendary.</p>
+  </div>
+</div>
+
+<script>
+/* ---------- Data ---------- */
+const rarityTable = [
+  { range:[1,60], key:'none', label:'No Drop', tag:'' },
+  { range:[61,85], key:'common', label:'Cheeklet Drop', tag:'common' },
+  { range:[86,95], key:'rare', label:'Scroll-Blessed Relic', tag:'rare' },
+  { range:[96,99], key:'epic', label:'Double-Cheeked Treasure', tag:'epic' },
+  { range:[100,100], key:'legendary', label:'Legendary Thiccness', tag:'legendary' },
+];
+
+const baseItems = [
+  { name:"Pencil of Persistence", effect:"+10 min drawing → bonus XP" },
+  { name:"Brush of Bold Gestures", effect:"First 15 min = +25% confidence buff" },
+  { name:"Compass of Clean Ellipses", effect:"Ellipse drills grant +50 bonus XP" },
+  { name:"Ruler of Mercy", effect:"One wobbly line per session forgiven" },
+  { name:"Marker of Momentum", effect:"If you start within 5 min, +20 XP" },
+];
+
+const prefixes = [
+  { name:"Fiery", blurb:"+10% speed for 2 days" },
+  { name:"Lunar", blurb:"Night sessions grant +30 XP" },
+  { name:"Steady-Handed", blurb:"+5 min wrist warmups unlock +10 XP" },
+  { name:"Whispering", blurb:"Notes taken = double XP" },
+  { name:"Boundless", blurb:"Session may exceed plan w/ +0.05× multiplier" },
+];
+
+const suffixes = [
+  { name:"of Reflection", blurb:"Review last session → double XP on first drill" },
+  { name:"of Focus", blurb:"Phone on DND → +25 XP" },
+  { name:"of Flow", blurb:"If you hit 45+ min, add +0.05× for today" },
+  { name:"of Fortune", blurb:"Gain +1 reroll token" },
+  { name:"of the Garden", blurb:"Move 1 Seed → Active Garden for +20 XP" },
+];
+
+const effectsByRarity = {
+  common:     "Gain +50 bonus XP next session.",
+  rare:       "+1 reroll token for a failed loot drop.",
+  epic:       "+0.1× XP multiplier for the next 3 days.",
+  legendary:  "Unlock a big reward: new art tool, day trip, or creative splurge."
+};
+
+/* ---------- Helpers ---------- */
+const $ = sel => document.querySelector(sel);
+const historyEl = $("#history");
+const resEl = $("#result");
+
+// ---- Restore history from localStorage on load ----
+window.addEventListener("DOMContentLoaded", () => {
+  const logs = JSON.parse(localStorage.getItem("lootLog") || "[]");
+  logs.forEach(entry => {
+    const row = document.createElement("div");
+    row.className = "row";
+    row.innerHTML = entry;
+    historyEl.appendChild(row);
+  });
+});
+
+function d100(){ return Math.floor(Math.random()*100)+1; }
+function pick(table){ return table[Math.floor(Math.random()*table.length)]; }
+function rarityForRoll(n){ return rarityTable.find(r => n>=r.range[0] && n<=r.range[1]); }
+function tagHTML(tag, text){ return tag ? `<span class="tag ${tag}">${text}</span>` : ""; }
+function timeStamp(){ return new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'}); }
+
+/* ---------- Core Roll ---------- */
+function rollLoot(){
+  const wantFlavor = $("#withFlavor").checked;
+  const wantEffects = $("#autoEffects").checked;
+
+  const r = d100();
+  const rar = rarityForRoll(r);
+  if(rar.key==='none'){
+    const msg = `🎲 Rolled <b>${r}</b> → No Drop. (XP only. The Bureau snickers… for now.)`;
+    resEl.innerHTML = msg;
+    log(msg);
+    return;
+  }
+
+  const base = pick(baseItems);
+  let title = base.name;
+  let lines = [];
+
+  if(wantFlavor){
+    const pre = pick(prefixes).name;
+    const suf = pick(suffixes).name;
+    title = `${pre} ${title} ${suf}`;
+    lines.push(`<span class="muted">Prefix/Suffix applied.</span>`);
+  }
+
+  const effect = effectsByRarity[rar.key] || "";
+  const baseEffect = base.effect ? `Base: ${base.effect}` : "";
+  const fullEffect = wantEffects ? [baseEffect, effect].filter(Boolean).join(" • ") : baseEffect;
+
+  const html = `
+    <div>
+      <div>${tagHTML(rar.tag, rar.label)} &nbsp; 🎲 Roll: <b>${r}</b> at ${timeStamp()}</div>
+      <div style="margin-top:6px; font-size:18px; font-weight:800">${title}</div>
+      ${fullEffect ? `<div class="muted" style="margin-top:4px">${fullEffect}</div>` : ""}
+      ${lines.length ? `<div style="margin-top:6px">${lines.join("<br>")}</div>` : ""}
+    </div>
+  `;
+
+  resEl.innerHTML = html;
+  log(html, true);
+}
+
+function log(html, rich=false){
+  const row = document.createElement('div');
+  row.className = 'row';
+  row.innerHTML = rich ? html : `<div>${html}</div>`;
+  historyEl.prepend(row);
+
+  // ---- Persist to localStorage (keep last 50) ----
+  const logs = JSON.parse(localStorage.getItem("lootLog") || "[]");
+  logs.unshift(row.innerHTML);
+  localStorage.setItem("lootLog", JSON.stringify(logs.slice(0, 50)));
+}
+
+/* ---------- Events ---------- */
+$("#rollBtn").addEventListener('click', rollLoot);
+$("#clearHistory").addEventListener('click', () => {
+  historyEl.innerHTML = "";
+  localStorage.removeItem("lootLog");
+});
+</script>
 </body>
 </html>
