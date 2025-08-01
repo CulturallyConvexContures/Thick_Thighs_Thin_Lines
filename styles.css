@@ -1,0 +1,36 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: url("293B7746-6735-406A-83FE-D0C717954822.png") no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Courier New', monospace;
+  color: #ffffff;
+}
+
+.overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(10, 10, 20, 0.6);
+  padding: 20px 40px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 0 10px #000;
+}
+
+button {
+  background: #88e1f2;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: #ffffff;
+  color: #000;
+}
