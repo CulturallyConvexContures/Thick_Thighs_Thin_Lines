@@ -36,6 +36,21 @@ button:focus {
   margin-top: 1rem;
 }
 
+.btn-link {
+  display: inline-block;
+  background-color: #4da6ff;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 5vw;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.btn-link:hover {
+  background-color: #3388cc;
+}
+
 .common { color: #bbb; }
 .rare { color: #4c9aff; }
 .epic { color: #c57aff; }
