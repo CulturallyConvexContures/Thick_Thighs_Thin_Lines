@@ -1,24 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8" />
   <title>Dice Roller</title>
-  <style>
-    body { font-family: sans-serif; text-align: center; margin-top: 3em; }
-    .dice-result { font-size: 2em; margin-top: 1em; }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <h1>🎲 Roll a Booty Die</h1>
-  <button onclick="rollDice()">Roll</button>
-  <div class="dice-result" id="result">Ready?</div>
+
+  <!-- Center Glass Menu -->
+  <div class="menu-card" role="region" aria-label="Roll menu">
+    <h1 class="menu-title">
+      <span>🎲 Roll</span>
+      <span>a</span>
+      <span>Die</span>
+    </h1>
+
+    <button class="menu-btn" id="rollBtn" type="button">✨ Roll ✨</button>
+
+    <p class="menu-result" id="result" aria-live="polite">Ready?</p>
+  </div>
 
   <script>
+    // your simple demo roll (1–6). Replace with your own logic anytime.
     function rollDice() {
       const roll = Math.floor(Math.random() * 6) + 1;
       document.getElementById("result").innerText = `You rolled: ${roll}`;
     }
+    // hook the button to your function
+    document.getElementById('rollBtn').addEventListener('click', rollDice);
   </script>
 </body>
 </html>
-
