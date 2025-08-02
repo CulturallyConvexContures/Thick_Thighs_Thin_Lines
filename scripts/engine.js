@@ -103,8 +103,8 @@ function tossBones() {
   const tokens = Number(localStorage.getItem("rollTokens")) || 0;
 
   if (!tokens) {
-    console.warn("⛔ No rolls available!");
-    document.getElementById("resultText").innerText = "⛔ No rolls left. Add one first.";
+    console.warn("🛑No 🦴 available!");
+    document.getElementById("resultText").innerText = "🛑No 🦴 left.";
     return;
   }
 
