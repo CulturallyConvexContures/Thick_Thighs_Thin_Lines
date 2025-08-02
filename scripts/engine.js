@@ -79,15 +79,6 @@ function rollAndReveal() {
   xpTotal += xp;
   localStorage.setItem("xpTotal", xpTotal);
 
-  // 🔁 Bonus Roll on high rolls
-  let earnedBonusRoll = false;
-  if (roll >= 969) {
-    let tokens = Number(localStorage.getItem("rollTokens")) || 0;
-    localStorage.setItem("rollTokens", ++tokens);
-    updateTokenDisplay();
-    earnedBonusRoll = true;
-  }
-
   // ✨ Display Result
   const resultText = document.getElementById("resultText");
   resultText.innerHTML = `
