@@ -1,23 +1,26 @@
+/* 🌌 GLOBAL BODY SETTINGS */
 body {
-  background-color: #001f3f;
+  background-color: #001f3f; /* Deep space blue */
   color: white;
-  font-family: monospace;
+  font-family: monospace;    /* Clean code font for ritual vibes */
   text-align: center;
-  padding-top: 20vh; /* Moves content down on tall screens */
-  margin: 0;
+  padding-top: 20vh;         /* Vertical offset for mobile spacing */
+  margin: 0;                 /* Remove default spacing */
 }
 
+/* 🧠 TITLE HEADER – "Moxie’s Bones™" */
 .title {
-  font-size: 9vw;/* Chosen to look good on mobile without breaking layout */
-  text-shadow: 0 0 3px #00ffff, 0 0 6px #0077ff;
+  font-size: 9vw;            /* Responsive size: mobile-first */
+  text-shadow: 0 0 3px #00ffff, 0 0 6px #0077ff; /* Glowy neon */
   font-weight: bold;
 }
 
+/* 🎯 PRIMARY BUTTONS */
 button {
-  background-color: #4da6ff;
+  background-color: #4da6ff; /* Moxie Blue */
   color: white;
   padding: 14px 28px;
-  font-size: 5vw;  /* Looks good on mobile screens */
+  font-size: 5vw;
   border: none;
   border-radius: 10px;
   margin-bottom: 2rem;
@@ -25,27 +28,31 @@ button {
   transition: background-color 0.2s ease;
 }
 
+/* 🌀 Button Interaction */
 button:active,
 button:focus {
   background-color: #4da6ff;
   outline: none;
 }
 
+/* 🎲 ROLL RESULT TEXT */
 #resultText {
-  font-size: 6vw; /* Big and bold for mobile display */
+  font-size: 6vw;
   margin-top: 1rem;
 }
 
+/* 🔺 LEVEL DISPLAY */
 .level-display {
   font-size: 5vw;
   color: gold;
   font-weight: bold;
-  opacity: 0;
+  opacity: 0;                             /* Hidden until triggered */
   transition: opacity 1.2s ease-in-out;
   text-shadow: 0 0 10px gold;
   margin-top: 1rem;
 }
 
+/* 🧭 NAVIGATION-STYLE BUTTON (if used as anchor) */
 .btn-link {
   display: inline-block;
   background-color: #4da6ff;
@@ -61,15 +68,17 @@ button:focus {
   background-color: #3388cc;
 }
 
-.common { color: #bbb; }
-.rare { color: #4c9aff; }
-.epic { color: #c57aff; }
+/* 🎨 RARITY COLORS */
+.common    { color: #bbb; }         /* Default */
+.rare      { color: #4c9aff; }      /* Blue glow */
+.epic      { color: #c57aff; }      /* Lavender flex */
 .legendary {
   color: gold;
   font-weight: bold;
   text-shadow: 0 0 5px gold;
 }
 
+/* 🧹 FOOTER NAV */
 footer {
   margin-top: 8rem;
 }
@@ -88,6 +97,7 @@ footer {
   color: #ffffff;
 }
 
+/* 💭 Subtext under "Back to Dojo" */
 .back-sub {
   font-size: 3.5vw;
   color: #bbbbbb;
@@ -96,6 +106,7 @@ footer {
   font-style: italic;
 }
 
+/* 🧼 Reset Message Style */
 .xp-reset-msg {
   font-size: 5vw;
   color: #bbbbbb;
@@ -103,6 +114,7 @@ footer {
   font-style: italic;
 }
 
+/* 🦴 Bone Count and Controls */
 .token-controls {
   font-size: 5vw;
   display: flex;
@@ -112,6 +124,7 @@ footer {
   margin-top: 1.5rem;
 }
 
+/* 🎴 Bonus Roll Message */
 .bonus-roll {
   color: #00ff99;
   font-weight: bold;
