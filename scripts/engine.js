@@ -88,5 +88,13 @@ function tossBones() {
 }
 window.tossBones = tossBones;
 
+function resetXP() {
+  localStorage.removeItem("xpTotal");
+  document.getElementById("resultText").innerHTML = `
+    <div class="xp-reset-msg">🧼 XP has been wiped clean.</div>
+  `;
+  console.log("🧼 XP reset.");
+}
+
 // 🚀 Fire it off when loaded
 loadTables();
