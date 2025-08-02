@@ -1,4 +1,4 @@
-// 🎲 Ritual Engine – Moxie’s Bones w/ Rarity-Based Loot
+// 🎲 Ritual Engine – Moxie’s Bones w/ Rarity-Based Loot + XP System
 
 let RARITY_TABLE = [];
 let PERK_TABLE = {};
@@ -25,12 +25,27 @@ function rollAndReveal() {
   const perk = PERK_TABLE[roll];
   const loot = getLootDrop(rarity);
 
+  // 💠 XP logic
+  let xp = roll;
+  if (rarity === "Glimmer") xp *= 1.1;
+  if (rarity === "Radiant") xp *= 1.25;
+  if (rarity === "Mythborn") xp *= 1.5;
+  if (rarity === "Fated") xp *= 2;
+  xp = Math.floor(xp);
+
+  // 💾 XP total saved to localStorage
+  let totalXP = Number(localStorage.getItem("xpTotal")) || 0;
+  totalXP += xp;
+  localStorage.setItem("xpTotal", totalXP);
+
   const resultText = document.getElementById("resultText");
   resultText.innerHTML = `
     <div class="roll-output">
       <div class="${rarity.toLowerCase()}">✨ ${rarity} – ${roll}</div>
+      <div class="xp-msg">📈 ${xp} EXP gained</div>
       ${perk ? `<div class="perk-msg">🧿 ${perk}</div>` : ""}
       ${loot && loot !== "✨ Nothing" ? `<div class="loot-msg">🎁 ${loot}</div>` : ""}
+      <div class="xp-total">🧮 Total XP: ${totalXP}</div>
     </div>
   `;
 }
@@ -72,5 +87,6 @@ function tossBones() {
   }
 }
 window.tossBones = tossBones;
+
 // 🚀 Fire it off when loaded
 loadTables();
