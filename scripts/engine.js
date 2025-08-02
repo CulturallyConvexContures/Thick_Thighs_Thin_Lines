@@ -66,6 +66,6 @@ function getLootDrop(currentRarity) {
 function tossBones() {
   rollAndReveal();
 }
-
+window.tossBones = tossBones;
 // 🚀 Fire it off when loaded
 loadTablesAndRoll();
