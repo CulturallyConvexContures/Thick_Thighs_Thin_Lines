@@ -61,5 +61,5 @@ function getLootDrop(currentRarity) {
       return loot.name;
     }
   }
-
+loadTablesAndRoll();
   return null;
