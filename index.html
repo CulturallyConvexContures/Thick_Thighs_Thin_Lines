@@ -14,11 +14,17 @@
   </div>
 
   <script>
-    const words = ["Whisper", "Glimmer", "Echo", "Drift", "Pulse", "Seed"];
-    function rollDice() {
-      const roll = words[Math.floor(Math.random() * words.length)];
-      document.getElementById("result").innerText = "You rolled: " + roll;
-    }
+function getRarityRoll() {
+  const roll = Math.floor(Math.random() * 101); // 0–100 inclusive
+  let rarity;
+
+  if (roll < 50) rarity = "Common";
+  else if (roll < 80) rarity = "Rare";
+  else if (roll < 95) rarity = "Epic";
+  else rarity = "Legendary";
+
+  return { roll, rarity };
+}
   </script>
 </body>
 </html>
