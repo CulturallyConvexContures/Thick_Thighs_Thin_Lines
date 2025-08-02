@@ -9,7 +9,7 @@ This is the official dojo playground of *Mango Moxie* — art tutor, flavor orac
 ## 🔮 Live Site
 
 Visit the dojo portal:  
-👉 [culturallyconvexcontures.github.io](https://culturallyconvexcontures.github.io)
+    🍑https://culturallyconvexcontures.github.io/Thick_Thighs_Thin_Lines/
 
 ---
 
