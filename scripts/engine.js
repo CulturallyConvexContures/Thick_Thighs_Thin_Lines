@@ -54,10 +54,23 @@ if (loot.includes("Gold")) {
   if (rarity === "Fated") xp *= 2;
   xp = Math.floor(xp);
 
-  // 💾 XP total saved to localStorage
-  let totalXP = Number(localStorage.getItem("xpTotal")) || 0;
-  totalXP += xp;
-  localStorage.setItem("xpTotal", totalXP);
+// 💾 Save to total XP
+let totalXP = Number(localStorage.getItem("xpTotal")) || 0;
+totalXP += xp;
+localStorage.setItem("xpTotal", totalXP);
+
+// 🔺 LEVEL CHECK
+let level = Number(localStorage.getItem("level")) || 1;
+
+function xpNeededForLevel(n) {
+  return Math.floor(1000 * Math.pow(n, 1.5));
+}
+
+if (totalXP >= xpNeededForLevel(level + 1)) {
+  level++;
+  localStorage.setItem("level", level);
+  console.log(`🎉 Leveled up! Now level ${level}`);
+}
 
   const resultText = document.getElementById("resultText");
   resultText.innerHTML = `
