@@ -18,6 +18,7 @@ function loadTablesAndRoll() {
     rollAndReveal();
   });
 }
+
 function rollAndReveal() {
   const roll = Math.floor(Math.random() * 1000) + 1;
   const rarity = getRarityFromRoll(roll);
@@ -27,13 +28,9 @@ function rollAndReveal() {
   const resultText = document.getElementById("resultText");
   resultText.innerHTML = `
     <div class="roll-output">
-     resultText.innerHTML = `
-  <div class="${rarity.toLowerCase()}">✨ ${rarity} – ${roll}</div>
-  ${perk ? `<div class="perk-msg">🧿 ${perk}</div>` : ""}
-  ${loot && loot !== "✨ Nothing" ? `<div class="loot-msg">🎁 ${loot}</div>` : ""}
-`;
-      \${perk ? `<div class="perk-msg">🧿 \${perk}</div>` : ""}
-      \${loot && loot !== "✨ Nothing" ? `<div class="loot-msg">🎁 \${loot}</div>` : ""}
+      <div class="${rarity.toLowerCase()}">✨ ${rarity} – ${roll}</div>
+      ${perk ? `<div class="perk-msg">🧿 ${perk}</div>` : ""}
+      ${loot && loot !== "✨ Nothing" ? `<div class="loot-msg">🎁 ${loot}</div>` : ""}
     </div>
   `;
 }
@@ -61,5 +58,9 @@ function getLootDrop(currentRarity) {
       return loot.name;
     }
   }
-loadTablesAndRoll();
+
   return null;
+}
+
+// 🚀 Fire it off when loaded
+loadTablesAndRoll();
