@@ -1,4 +1,3 @@
-
 # 🎨 Moxie’s CSS Cheat Sheet – *Style Order, Tips, and Layout Wisdom*
 
 Use this scroll as your **style structure reference** — so every box, button, and bone is placed with intention.
