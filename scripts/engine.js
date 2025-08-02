@@ -80,12 +80,13 @@ console.log("🎯 Displaying result with:", {
   xpTotal
 });
 
+const resultText = document.getElementById("resultText");
 if (!resultText) {
   alert("🧟‍♂️ resultText not found!");
 }
 
   // ✨ Display Result
-const resultText = document.getElementById("resultText");
+
   resultText.innerHTML = `
     <div class="roll-output">
       <div class="${rarity.toLowerCase()}">✨ ${rarity} – ${roll}</div>
