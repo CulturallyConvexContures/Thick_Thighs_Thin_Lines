@@ -35,6 +35,13 @@ if (roll >= 969 && roll <= 1000) {
   earnedBonusRoll = true;
 }
 
+if (loot.includes("Gold")) {
+  let amount = parseInt(loot.match(/\d+/)[0]); // extracts the number from "Gold x5"
+  let gold = Number(localStorage.getItem("goldTotal")) || 0;
+  gold += amount;
+  localStorage.setItem("goldTotal", gold);
+}
+
   // 💠 XP logic
   let xp = roll;
 // 🧮 Nerf low rolls (1–500)
