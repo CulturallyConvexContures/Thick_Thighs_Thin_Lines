@@ -20,7 +20,6 @@ Visit the dojo portal:
 ├── index.html                # Welcome to the Art Dojo (Homepage)
 ├── moxies-bones.html         # Moxie's mini-game: toss the bones!
 ├── styles.css                # Universal style guide
-├── script.js                 # Base JS (legacy)
 ├── /scripts/                 # Modular & ritual scripts (engine.js etc)
 ├── /data/                    # Rarity, perks, loot tables (JSON)
 ├── /💋-cheeksheets/           # Knowledge scrolls & styling secrets
