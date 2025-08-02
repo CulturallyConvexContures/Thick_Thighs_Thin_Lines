@@ -7,23 +7,9 @@ let LOOT_TABLE = [];
 const RARITY_ORDER = ["Dusty", "Glimmer", "Radiant", "Mythborn", "Fated"];
 
 // === 📦 Local State ===
-let level = Number(localStorage.getItem("level")) || 1;
 let xpTotal = Number(localStorage.getItem("xpTotal")) || 0;
 
 // === 🧪 Utility Functions ===
-function xpNeededForLevel(n) {
-  return Math.floor(1000 * Math.pow(n, 1.5));
-}
-
-function updateLevelDisplay() {
-  const levelDisplay = document.getElementById("levelDisplay");
-  levelDisplay.innerText = `Level: ${level}`;
-  levelDisplay.style.opacity = 1;
-  setTimeout(() => {
-    levelDisplay.style.opacity = 0;
-  }, 3000);
-}
-
 function updateTokenDisplay() {
   const count = Number(localStorage.getItem("rollTokens")) || 0;
   document.getElementById("tokenCount").innerText = `🎴 Rolls: ${count}`;
@@ -90,16 +76,8 @@ function rollAndReveal() {
   if (rarity === "Fated") xp *= 2;
   xp = Math.floor(xp);
 
-  // 🆙 Add XP and check level
   xpTotal += xp;
   localStorage.setItem("xpTotal", xpTotal);
-  while (xpTotal >= xpNeededForLevel(level + 1)) {
-    level++;
-    localStorage.setItem("level", level);
-    console.log(`🎉 Leveled up! Now level ${level}`);
-  }
-
-  updateLevelDisplay();
 
   // 🔁 Bonus Roll on high rolls
   let earnedBonusRoll = false;
@@ -150,4 +128,3 @@ window.resetXP = resetXP;
 
 loadTables();
 updateTokenDisplay();
-updateLevelDisplay();
