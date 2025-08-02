@@ -153,7 +153,7 @@ function tossBones() {
 }
 
 window.tossBones = tossBones;
-
+document.getElementById("levelDisplay").innerText = `Level: ${level}`;
 function resetXP() {
   localStorage.removeItem("xpTotal");
   document.getElementById("resultText").innerHTML = `
