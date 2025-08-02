@@ -37,6 +37,10 @@ if (roll >= 969 && roll <= 1000) {
 
   // 💠 XP logic
   let xp = roll;
+// 🧮 Nerf low rolls (1–500)
+  if (roll <= 500) {
+  xp = Math.floor(xp / 2);
+}
   if (rarity === "Glimmer") xp *= 1.1;
   if (rarity === "Radiant") xp *= 1.25;
   if (rarity === "Mythborn") xp *= 1.5;
