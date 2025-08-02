@@ -109,7 +109,7 @@ window.addRoll = addRoll;
 window.removeRoll = removeRoll;
 window.resetXP = resetXP;
 
-window.alert("If you see this, it’s the correct file!");
+window.alert("🧼 v1.3.2 – If you see this, it's the correct file!");
 
 loadTables();
 updateTokenDisplay();
