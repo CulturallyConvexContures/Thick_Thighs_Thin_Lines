@@ -85,3 +85,10 @@ footer {
   text-align: center;
   font-style: italic;
 }
+
+.xp-reset-msg {
+  font-size: 5vw;
+  color: #bbbbbb;
+  margin-top: 2rem;
+  font-style: italic;
+}
