@@ -1,36 +1,65 @@
-<!DOCTYPE html>
-<html>
-  
-<head>
-  <meta charset="UTF-8">
-   <p id="levelDisplay" class="level-display">Level: 1</p>
-  <title>Moxie’s Bones™</title>
+<!DOCTYPE html> 
+<!-- 🧾 Declares this is an HTML5 document — the spellbook format -->
+
+<html> 
+<!-- 🔮 Opens the sacred scroll -->
+
+<head> 
+  <meta charset="UTF-8"> 
+  <!-- ✨ Magic glyphs unlocked — lets us use emojis, symbols, smart quotes, etc. -->
+
+  <title>Moxie’s Bones™</title> 
+  <!--  Appears in your browser tab — your site’s name + vibe -->
+
   <link rel="stylesheet" href="styles.css">
+  <!-- 💅 Summons the external fashion scroll (your CSS) -->
 </head>
 
-<body>
- <h1 class="title">Moxies <span>🦴</span> Bones™️</h1>
+<body> 
+<!-- The body of your ritual — everything visual lives here -->
 
- <button onclick="tossBones()">Toss 'em</button>
+  <p id="levelDisplay" class="level-display">Level: 1</p>
+  <!-- Former attic dweller — this <p> tag once tried to live in <head> 
+     but has since seen the light and now floats proudly in <body>. -->
 
-<div class="token-controls">
-  <button onclick="addRoll()">➕</button>
-  <span id="tokenCount">Bones: 0</span>
-  <button onclick="removeRoll()">➖</button>
-</div>
+  <h1 class="title">Moxies <span>🦴</span> Bones™️</h1> 
+  <!-- 🔥 Big title with flavor, emoji, and class for styling -->
 
-  <p id="resultText">🎲</p>
+  <button onclick="tossBones()">Toss 'em</button>
+  <!-- 🎲 Main roll button — triggers the engine to chuck Moxie’s dice -->
+
+  <div class="token-controls">
+    <!-- 💼 Bone token control zone — add/remove your precious roll currency -->
+
+    <button onclick="addRoll()">➕</button>
+    <!-- 🦴 Add one roll token -->
+
+    <span id="tokenCount">Bones: 0</span>
+    <!-- 📊 Shows how many bones (aka roll tokens) you’ve got -->
+
+    <button onclick="removeRoll()">➖</button>
+    <!-- 🚫 Remove one roll token if you’re feeling honest or messed up -->
+  </div>
+
+  <p id="resultText">🎲</p> 
+  <!-- 📜 The results of your roll appear here (rarity, XP, loot, etc.) -->
 
   <button onclick="resetXP()">🧼 Reset XP</button>
+  <!-- 💀 Start fresh — wipes all XP and cleans your scroll -->
   
-<footer>
-  <a href="index.html" class="back-home">← Back to Dojo</a>
-  
-<p class="back-sub">Return when you're ready…</p>
+  <footer> 
+    <!-- 🦶 Footer zone — for navigation, vibes, and exits -->
 
-</footer>
+    <a href="index.html" class="back-home">← Back to Dojo</a> 
+    <!-- 🏕️ Click this to return to your main camp/homepage -->
 
-<script src="scripts/engine.js"></script>
-  
-</body>
+    <p class="back-sub">Return when you're ready…</p> 
+    <!-- 🕯️ Subtle flavor text — poetic call to come back when you’re leveled up -->
+  </footer>
+
+  <script src="scripts/engine.js"></script> 
+  <!-- 🧠 Loads your Engine — all the dice logic, XP, loot, and fire lives here -->
+
+</body> 
 </html>
+<!-- 🔚 Scroll complete. Let the dice fall where they may. -->
