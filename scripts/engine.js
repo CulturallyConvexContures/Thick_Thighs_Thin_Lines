@@ -77,15 +77,46 @@ function getLootDrop(currentRarity) {
   return null;
 }
 
+function updateTokenDisplay() {
+  const count = Number(localStorage.getItem("rollTokens")) || 0;
+  document.getElementById("tokenCount").innerText = `🎴 Rolls: ${count}`;
+}
+
+function addRoll() {
+  let count = Number(localStorage.getItem("rollTokens")) || 0;
+  count++;
+  localStorage.setItem("rollTokens", count);
+  updateTokenDisplay();
+}
+
+function removeRoll() {
+  let count = Number(localStorage.getItem("rollTokens")) || 0;
+  if (count > 0) {
+    count--;
+    localStorage.setItem("rollTokens", count);
+    updateTokenDisplay();
+  }
+}
+
 // 🎯 Button logic
 function tossBones() {
+  const tokens = Number(localStorage.getItem("rollTokens")) || 0;
+
+  if (!tokens) {
+    console.warn("⛔ No rolls available!");
+    document.getElementById("resultText").innerText = "⛔ No rolls left. Add one first.";
+    return;
+  }
+
   if (RARITY_TABLE.length && Object.keys(PERK_TABLE).length && LOOT_TABLE.length) {
-    console.log("engine.v1");
+    localStorage.setItem("rollTokens", tokens - 1);
+    updateTokenDisplay();
     rollAndReveal();
   } else {
     console.warn("🕐 Still loading tables…");
   }
 }
+
 window.tossBones = tossBones;
 
 function resetXP() {
@@ -98,3 +129,4 @@ function resetXP() {
 
 // 🚀 Fire it off when loaded
 loadTables();
+updateTokenDisplay(); // 🔁 Keep the roll counter fresh
