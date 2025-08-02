@@ -7,10 +7,23 @@ body {
   color: #ffffff;
 }
 
-.common { color: #ccc; }
-.rare { color: #58a6ff; }
-.epic { color: #b47cff; }
-.legendary { color: #ffce4b; font-weight: bold; text-shadow: 0 0 5px gold; }
+.common {
+  color: #bbbbbb;
+}
+
+.rare {
+  color: #3f87ff;
+}
+
+.epic {
+  color: #a36fff;
+}
+
+.legendary {
+  color: gold;
+  font-weight: bold;
+  text-shadow: 0 0 5px gold;
+}
 
 .overlay {
   position: absolute;
