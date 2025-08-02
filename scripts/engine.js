@@ -70,6 +70,7 @@ function rollAndReveal() {
 
   xpTotal += xp;
   localStorage.setItem("xpTotal", xpTotal);
+  
 console.log("🎯 Displaying result with:", {
   roll,
   rarity,
@@ -78,6 +79,11 @@ console.log("🎯 Displaying result with:", {
   xp,
   xpTotal
 });
+
+if (!resultText) {
+  alert("🧟‍♂️ resultText not found!");
+}
+
   // ✨ Display Result
 const resultText = document.getElementById("resultText");
   resultText.innerHTML = `
