@@ -1,30 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>StarSeed Dice Roller</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <title>Moxie’s Bones™</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="overlay">
-    <h1>Moxies 🦴Bones™️</h1>  
-    <button onclick="rollDice()">Toss 'em</button>
-    <p id="result">🥳☠️: ?</p>
-  </div>
+  <h1>Moxies <span>🦴</span> Bones™</h1>
+  <button onclick="tossBones()">Toss 'em</button>
+  <p id="resultText">🎲</p>
 
-  <script>
-function getRarityRoll() {
-  const roll = Math.floor(Math.random() * 101); // 0 to 100 inclusive
-  let rarity;
-
-  if (roll < 50) rarity = "Common";
-  else if (roll < 80) rarity = "Rare";
-  else if (roll < 95) rarity = "Epic";
-  else rarity = "Legendary";
-
-  return { roll, rarity };
-}
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
