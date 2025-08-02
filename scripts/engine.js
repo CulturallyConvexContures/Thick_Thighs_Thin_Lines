@@ -54,6 +54,18 @@ if (loot.includes("Gold")) {
   if (rarity === "Fated") xp *= 2;
   xp = Math.floor(xp);
 
+// Update the level display
+const levelDisplay = document.getElementById("levelDisplay");
+levelDisplay.innerText = `Level: ${level}`;
+
+// ✨ Fade in
+levelDisplay.style.opacity = 1;
+
+// Optional: fade back out after a few seconds
+setTimeout(() => {
+  levelDisplay.style.opacity = 0;
+}, 3000); // fades out after 3 seconds
+
 // 💾 Save to total XP
 let totalXP = Number(localStorage.getItem("xpTotal")) || 0;
 totalXP += xp;
