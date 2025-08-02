@@ -36,6 +36,16 @@ button:focus {
   margin-top: 1rem;
 }
 
+.level-display {
+  font-size: 5vw;
+  color: gold;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out;
+  text-shadow: 0 0 10px gold;
+  margin-top: 1rem;
+}
+
 .btn-link {
   display: inline-block;
   background-color: #4da6ff;
