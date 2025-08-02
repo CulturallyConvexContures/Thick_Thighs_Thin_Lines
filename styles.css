@@ -92,3 +92,12 @@ footer {
   margin-top: 5rem;
   font-style: italic;
 }
+
+.token-controls {
+  font-size: 5vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
