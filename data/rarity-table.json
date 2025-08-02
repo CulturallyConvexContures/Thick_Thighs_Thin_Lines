@@ -1,7 +1,7 @@
 [
-  { "name": "Dusty",     "min": 1,    "max": 499 },
-  { "name": "Glimmer",   "min": 500,  "max": 799 },
-  { "name": "Radiant",   "min": 800,  "max": 949 },
-  { "name": "Mythborn",  "min": 950,  "max": 998 },
+  { "name": "Dusty",     "min": 1,    "max": 749 },
+  { "name": "Glimmer",   "min": 770,  "max": 899 },
+  { "name": "Radiant",   "min": 900,  "max": 969 },
+  { "name": "Mythborn",  "min": 970,  "max": 998 },
   { "name": "Fated",     "min": 999,  "max": 1000 }
 ]
