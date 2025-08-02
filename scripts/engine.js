@@ -6,20 +6,19 @@ let PERK_TABLE = {};
 let LOOT_TABLE = [];
 const RARITY_ORDER = ["Dusty", "Glimmer", "Radiant", "Mythborn", "Fated"];
 
-function loadTablesAndRoll()
-{Promise.all([
-  fetch('data/rarity-table.json').then(res => res.json()),
-  fetch('data/perk-table.json').then(res => res.json()),
-  fetch('data/loot-table.json').then(res => res.json())
-])
-  ]).then(([rarityData, perkData, lootData]) => {
+function loadTablesAndRoll() {
+  Promise.all([
+    fetch('data/rarity-table.json').then(res => res.json()),
+    fetch('data/perk-table.json').then(res => res.json()),
+    fetch('data/loot-table.json').then(res => res.json())
+  ])
+  .then(([rarityData, perkData, lootData]) => {
     RARITY_TABLE = rarityData;
     PERK_TABLE = perkData;
     LOOT_TABLE = lootData;
     rollAndReveal();
   });
 }
-
 function rollAndReveal() {
   const roll = Math.floor(Math.random() * 1000) + 1;
   const rarity = getRarityFromRoll(roll);
