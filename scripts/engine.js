@@ -59,14 +59,6 @@ function rollAndReveal() {
   const perk = PERK_TABLE[roll];
   const loot = getLootDrop(rarity);
 
-  // 🎁 Loot: Gold payout
-  if (loot && loot.includes("Gold")) {
-    const amount = parseInt(loot.match(/\d+/)[0]);
-    let gold = Number(localStorage.getItem("goldTotal")) || 0;
-    gold += amount;
-    localStorage.setItem("goldTotal", gold);
-  }
-
   // 🧮 XP Calculation
   let xp = roll;
   if (roll <= 500) xp = Math.floor(xp / 2);
