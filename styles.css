@@ -12,19 +12,6 @@ body {
   text-shadow: 0 0 3px #00ffff, 0 0 6px #0077ff;
   font-weight: bold;
 }
-/* Makes sure result stays centered inside container */
-.result-box {
-  height: 3em; /* or use px/vw if you prefer */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 1rem;
-}
-
-#resultText {
-  font-size: 6vw;
-  margin: 0;
-}
 
 button {
   background-color: #4da6ff;
