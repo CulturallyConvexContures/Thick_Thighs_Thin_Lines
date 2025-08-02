@@ -101,3 +101,11 @@ footer {
   gap: 1rem;
   margin-top: 1.5rem;
 }
+
+.bonus-roll {
+  color: #00ff99;
+  font-weight: bold;
+  font-size: 5vw;
+  margin-top: 1rem;
+  text-shadow: 0 0 5px #00ffaa;
+}
