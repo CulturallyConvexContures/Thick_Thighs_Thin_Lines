@@ -1,34 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Dice Roller</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StarSeed Dice Roller</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-
-  <!-- Center Glass Menu -->
-  <div class="menu-card" role="region" aria-label="Roll menu">
-    <h1 class="menu-title">
-      <span>🎲 Roll</span>
-      <span>a</span>
-      <span>Die</span>
-    </h1>
-
-    <button class="menu-btn" id="rollBtn" type="button">✨ Roll ✨</button>
-
-    <p class="menu-result" id="result" aria-live="polite">Ready?</p>
+  <div class="overlay">
+    <h1>🎲 Roll a StarSeed Die</h1>
+    <button onclick="rollDice()">✨ Roll ✨</button>
+    <p id="result">You rolled: ?</p>
   </div>
 
   <script>
-    // your simple demo roll (1–6). Replace with your own logic anytime.
+    const words = ["Whisper", "Glimmer", "Echo", "Drift", "Pulse", "Seed"];
     function rollDice() {
-      const roll = Math.floor(Math.random() * 6) + 1;
-      document.getElementById("result").innerText = `You rolled: ${roll}`;
+      const roll = words[Math.floor(Math.random() * words.length)];
+      document.getElementById("result").innerText = "You rolled: " + roll;
     }
-    // hook the button to your function
-    document.getElementById('rollBtn').addEventListener('click', rollDice);
   </script>
 </body>
 </html>
