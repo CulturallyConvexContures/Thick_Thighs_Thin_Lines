@@ -41,33 +41,6 @@ button:focus {
   margin-top: 1rem;
 }
 
-/* 🔺 LEVEL DISPLAY */
-.level-display {
-  font-size: 5vw;
-  color: gold;
-  font-weight: bold;
-  opacity: 0;                             /* Hidden until triggered */
-  transition: opacity 1.2s ease-in-out;
-  text-shadow: 0 0 10px gold;
-  margin-top: 1rem;
-}
-
-/* 🧭 NAVIGATION-STYLE BUTTON (if used as anchor) */
-.btn-link {
-  display: inline-block;
-  background-color: #4da6ff;
-  color: white;
-  padding: 12px 24px;
-  border-radius: 8px;
-  font-size: 5vw;
-  text-decoration: none;
-  transition: background-color 0.2s ease;
-}
-
-.btn-link:hover {
-  background-color: #3388cc;
-}
-
 /* 🎨 RARITY COLORS */
 .common    { color: #bbb; }         /* Default */
 .rare      { color: #4c9aff; }      /* Blue glow */
@@ -125,10 +98,11 @@ footer {
 }
 
 /* 🎴 Bonus Roll Message */
-.bonus-roll {
+/*.bonus-roll {
   color: #00ff99;
   font-weight: bold;
   font-size: 5vw;
   margin-top: 1rem;
   text-shadow: 0 0 5px #00ffaa;
 }
+*/
