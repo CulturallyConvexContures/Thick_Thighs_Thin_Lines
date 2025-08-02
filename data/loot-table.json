@@ -1,0 +1,6 @@
+[
+  { "name": "Pixel Dust", "chance": 20, "minRarity": "Dusty" },
+  { "name": "Moxie's Mint Gum", "chance": 10, "minRarity": "Glimmer" },
+  { "name": "Ancient Cheek Ring", "chance": 5, "minRarity": "Mythborn" },
+  { "name": "✨ Nothing", "chance": 65, "minRarity": "Dusty" }
+]
