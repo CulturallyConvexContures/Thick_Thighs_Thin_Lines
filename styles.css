@@ -77,3 +77,11 @@ footer {
 .back-home:hover {
   color: #ffffff;
 }
+
+.back-sub {
+  font-size: 3.5vw;
+  color: #bbbbbb;
+  margin-top: 0.5rem;
+  text-align: center;
+  font-style: italic;
+}
