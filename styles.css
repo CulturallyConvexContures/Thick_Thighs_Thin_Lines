@@ -7,6 +7,11 @@ body {
   color: #ffffff;
 }
 
+.common { color: #ccc; }
+.rare { color: #58a6ff; }
+.epic { color: #b47cff; }
+.legendary { color: #ffce4b; font-weight: bold; text-shadow: 0 0 5px gold; }
+
 .overlay {
   position: absolute;
   top: 50%;
@@ -36,4 +41,4 @@ button:active {
   background-color: #4da6ff; /* Keep the same blue */
   color: white;
   outline: none;
-}}
+}
