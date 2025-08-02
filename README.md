@@ -1,1 +1,27 @@
-# artful-scroll-of-illustration
+# 🍑 Thick_Thighs_Thin_Lines™
+
+Welcome to the **Art Dojo** — where the lines are tight, the thighs are thicker, and your code don’t wiggle unless you tell it to.
+
+This is the official dojo playground of *Mango Moxie* — art tutor, flavor oracle, and gum-snapping dominator of form and function.
+
+---
+
+## 🔮 Live Site
+
+Visit the dojo portal:  
+👉 [culturallyconvexcontures.github.io](https://culturallyconvexcontures.github.io)
+
+---
+
+## 🧩 Structure
+
+```txt
+.
+├── index.html                # Welcome to the Art Dojo (Homepage)
+├── moxies-bones.html         # Moxie's mini-game: toss the bones!
+├── styles.css                # Universal style guide
+├── script.js                 # Base JS (legacy)
+├── /scripts/                 # Modular & ritual scripts (engine.js etc)
+├── /data/                    # Rarity, perks, loot tables (JSON)
+├── /💋-cheeksheets/           # Knowledge scrolls & styling secrets
+└── README.md                 # You're reading it.
