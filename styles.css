@@ -1,39 +1,44 @@
 body {
+  background-color: #001f3f;
+  color: white;
   font-family: monospace;
   text-align: center;
-  background: #001f3f;
-  color: white;
-  margin-top: 5rem;
+  padding-top: 20vh; /* Moves content down on tall screens */
+  margin: 0;
+}
+
+h1 {
+  font-size: 7vw; /* Scales with screen width */
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
 }
 
 button {
   background-color: #4da6ff;
   color: white;
-  padding: 10px 20px;
+  padding: 14px 28px;
+  font-size: 5vw;  /* Looks good on mobile screens */
   border: none;
-  font-size: 1rem;
-  border-radius: 8px;
+  border-radius: 10px;
+  margin-bottom: 2rem;
   cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
-button:focus,
-button:active {
+button:active,
+button:focus {
   background-color: #4da6ff;
   outline: none;
 }
 
-.common {
-  color: #bbbbbb;
+#resultText {
+  font-size: 6vw; /* Big and bold for mobile display */
+  margin-top: 1rem;
 }
 
-.rare {
-  color: #3f87ff;
-}
-
-.epic {
-  color: #a36fff;
-}
-
+.common { color: #bbb; }
+.rare { color: #4c9aff; }
+.epic { color: #c57aff; }
 .legendary {
   color: gold;
   font-weight: bold;
