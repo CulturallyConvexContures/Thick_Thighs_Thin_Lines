@@ -41,6 +41,18 @@ button:focus {
   margin-top: 1rem;
 }
 
+/* NOT Related to Levels. Button to enter Moxies Bones DO NOT REMOVE */
+.btn-link {
+  display: inline-block;
+  background-color: #4da6ff;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 5vw;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
 /* 🎨 RARITY COLORS */
 .common    { color: #bbb; }         /* Default */
 .rare      { color: #4c9aff; }      /* Blue glow */
