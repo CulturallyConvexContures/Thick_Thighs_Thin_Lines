@@ -25,6 +25,16 @@ function rollAndReveal() {
   const perk = PERK_TABLE[roll];
   const loot = getLootDrop(rarity);
 
+let earnedBonusRoll = false;
+
+if (roll >= 969 && roll <= 1000) {
+  let currentTokens = Number(localStorage.getItem("rollTokens")) || 0;
+  currentTokens++;
+  localStorage.setItem("rollTokens", currentTokens);
+  updateTokenDisplay();
+  earnedBonusRoll = true;
+}
+
   // 💠 XP logic
   let xp = roll;
   if (rarity === "Glimmer") xp *= 1.1;
@@ -43,6 +53,7 @@ function rollAndReveal() {
     <div class="roll-output">
       <div class="${rarity.toLowerCase()}">✨ ${rarity} – ${roll}</div>
       <div class="xp-msg">📈 ${xp} EXP gained</div>
+      ${earnedBonusRoll ? `<div class="bonus-roll">🎴 Bonus roll earned!</div>` : ""}
       ${perk ? `<div class="perk-msg">🧿 ${perk}</div>` : ""}
       ${loot && loot !== "✨ Nothing" ? `<div class="loot-msg">🎁 ${loot}</div>` : ""}
       <div class="xp-total">🧮 Total XP: ${totalXP}</div>
@@ -104,7 +115,7 @@ function tossBones() {
 
   if (!tokens) {
     console.warn("🛑No 🦴 available!");
-    document.getElementById("resultText").innerText = "🛑No 🦴 left.";
+    document.getElementById("resultText").innerText = "No 🦴 left. ";
     return;
   }
 
