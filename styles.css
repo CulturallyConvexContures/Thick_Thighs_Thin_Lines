@@ -1,10 +1,25 @@
 body {
-  margin: 0;
-  padding: 0;
-  background: url("70109FEC-E392-4DF9-8796-47C26421BC72.png") no-repeat center center fixed;
-  background-size: cover;
-  font-family: 'Courier New', monospace;
-  color: #ffffff;
+  font-family: monospace;
+  text-align: center;
+  background: #001f3f;
+  color: white;
+  margin-top: 5rem;
+}
+
+button {
+  background-color: #4da6ff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:focus,
+button:active {
+  background-color: #4da6ff;
+  outline: none;
 }
 
 .common {
@@ -23,35 +38,4 @@ body {
   color: gold;
   font-weight: bold;
   text-shadow: 0 0 5px gold;
-}
-
-.overlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: rgba(10, 10, 20, 0.6);
-  padding: 20px 40px;
-  border-radius: 12px;
-  text-align: center;
-  box-shadow: 0 0 10px #000;
-}
-
-button {
-  background-color: #4da6ff; /* Your desired blue */
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 1rem;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-/* 💡 Important part: Override default click behavior */
-button:focus,
-button:active {
-  background-color: #4da6ff; /* Keep the same blue */
-  color: white;
-  outline: none;
 }
