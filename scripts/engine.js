@@ -1,4 +1,3 @@
-
 // 🎲 Ritual Engine – Moxie’s Bones w/ Rarity-Based Loot
 
 let RARITY_TABLE = [];
@@ -28,7 +27,11 @@ function rollAndReveal() {
   const resultText = document.getElementById("resultText");
   resultText.innerHTML = `
     <div class="roll-output">
-      <div class="\${rarity.toLowerCase()}">✨ \${rarity} – \${roll}</div>
+     resultText.innerHTML = `
+  <div class="${rarity.toLowerCase()}">✨ ${rarity} – ${roll}</div>
+  ${perk ? `<div class="perk-msg">🧿 ${perk}</div>` : ""}
+  ${loot && loot !== "✨ Nothing" ? `<div class="loot-msg">🎁 ${loot}</div>` : ""}
+`;
       \${perk ? `<div class="perk-msg">🧿 \${perk}</div>` : ""}
       \${loot && loot !== "✨ Nothing" ? `<div class="loot-msg">🎁 \${loot}</div>` : ""}
     </div>
