@@ -65,6 +65,7 @@ function getLootDrop(currentRarity) {
 // 🎯 Button logic
 function tossBones() {
   if (RARITY_TABLE.length && Object.keys(PERK_TABLE).length && LOOT_TABLE.length) {
+    console.log("🌀 rollAndReveal() fired");
     rollAndReveal();
   } else {
     console.warn("🕐 Still loading tables…");
