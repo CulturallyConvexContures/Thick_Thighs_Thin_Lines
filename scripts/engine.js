@@ -5,7 +5,7 @@ let PERK_TABLE = {};
 let LOOT_TABLE = [];
 const RARITY_ORDER = ["Dusty", "Glimmer", "Radiant", "Mythborn", "Fated"];
 
-function loadTablesAndRoll() {
+function loadTables() {
   Promise.all([
     fetch('data/rarity-table.json').then(res => res.json()),
     fetch('data/perk-table.json').then(res => res.json()),
@@ -15,7 +15,7 @@ function loadTablesAndRoll() {
     RARITY_TABLE = rarityData;
     PERK_TABLE = perkData;
     LOOT_TABLE = lootData;
-    rollAndReveal();
+    console.log("✅ Data loaded and ready.");
   });
 }
 
@@ -68,4 +68,4 @@ function tossBones() {
 }
 window.tossBones = tossBones;
 // 🚀 Fire it off when loaded
-loadTablesAndRoll();
+loadTables();
