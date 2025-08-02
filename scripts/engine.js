@@ -4,6 +4,12 @@ let RARITY_TABLE = [];
 let PERK_TABLE = {};
 let LOOT_TABLE = [];
 const RARITY_ORDER = ["Dusty", "Glimmer", "Radiant", "Mythborn", "Fated"];
+// 🔺 LEVEL CHECK
+let level = Number(localStorage.getItem("level")) || 1;
+
+function xpNeededForLevel(n) {
+  return Math.floor(1000 * Math.pow(n, 1.5));
+}
 
 function loadTables() {
   Promise.all([
@@ -71,12 +77,6 @@ let totalXP = Number(localStorage.getItem("xpTotal")) || 0;
 totalXP += xp;
 localStorage.setItem("xpTotal", totalXP);
 
-// 🔺 LEVEL CHECK
-let level = Number(localStorage.getItem("level")) || 1;
-
-function xpNeededForLevel(n) {
-  return Math.floor(1000 * Math.pow(n, 1.5));
-}
 
 if (totalXP >= xpNeededForLevel(level + 1)) {
   level++;
