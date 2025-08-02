@@ -70,18 +70,25 @@ function rollAndReveal() {
 
   xpTotal += xp;
   localStorage.setItem("xpTotal", xpTotal);
-
+console.log("🎯 Displaying result with:", {
+  roll,
+  rarity,
+  perk,
+  loot,
+  xp,
+  xpTotal
+});
   // ✨ Display Result
-  const resultText = document.getElementById("resultText");
-resultText.innerHTML = `
-  <div class="roll-output">
-    <div class="${rarity.toLowerCase()}">✨ ${rarity} – ${roll}</div>
-    <div class="xp-msg">📈 ${xp} EXP gained</div>
-    ${perk ? `<div class="perk-msg">🧿 ${perk}</div>` : ""}
-    ${loot && loot !== "✨ Nothing" ? `<div class="loot-msg">🎁 ${loot}</div>` : ""}
-    <div class="xp-total">🧮 Total XP: ${xpTotal}</div>
-  </div>
-`;
+const resultText = document.getElementById("resultText");
+  resultText.innerHTML = `
+    <div class="roll-output">
+      <div class="${rarity.toLowerCase()}">✨ ${rarity} – ${roll}</div>
+      <div class="xp-msg">📈 ${xp} EXP gained</div>
+      ${perk ? `<div class="perk-msg">🧿 ${perk}</div>` : ""}
+      ${loot && loot !== "✨ Nothing" ? `<div class="loot-msg">🎁 ${loot}</div>` : ""}
+      <div class="xp-total">🧮 Total XP: ${xpTotal}</div>
+    </div>
+  `;
 }
 
 // === 🎯 Ritual Invocation ===
